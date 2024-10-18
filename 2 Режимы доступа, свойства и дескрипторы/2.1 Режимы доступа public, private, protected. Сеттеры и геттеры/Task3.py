@@ -11,8 +11,8 @@ class Clock:
     def get_time(self):
         return self.time
     
-    @classmethod
-    def __check_time(cls, tm):
+    @staticmethod
+    def __check_time(tm):
         return type(tm) is int and 0 <= tm < 100000
     
 clock = Clock(0)
