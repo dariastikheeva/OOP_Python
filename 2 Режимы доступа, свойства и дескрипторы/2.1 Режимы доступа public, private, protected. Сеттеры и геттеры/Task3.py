@@ -9,7 +9,7 @@ class Clock:
             self.__time = tm
 
     def get_time(self):
-        return self.time
+        return self.__time
     
     @staticmethod
     def __check_time(tm):
