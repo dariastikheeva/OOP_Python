@@ -1,6 +1,3 @@
-from typing import Any
-
-
 class HandlerGET:
     def __init__(self, func):
         self.__fn = func
