@@ -28,4 +28,4 @@ mail.receive()
 mail.inbox_list[0].set_read(True)
 mail.inbox_list[-1].set_read(True)
 
-inbox_list_filtered = filter(bool, mail.inbox_list)
+inbox_list_filtered = list(filter(bool, mail.inbox_list))
