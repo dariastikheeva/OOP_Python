@@ -1,3 +1,5 @@
+import sys
+
 class MailItem:
     def __init__(self, mail_from, title, content):
         self.mail_from = mail_from
