@@ -12,7 +12,7 @@ class Track:
             return self.points[indx]
         
     def __setitem__(self, key, value):
-        if not (type(key) == int and 0 <= key <= len(self.points)):
+        if not (type(key) == int and 0 <= key < len(self.points)):
             raise IndexError('некорректный индекс')
         else:
             self.points[key][-1] = value
