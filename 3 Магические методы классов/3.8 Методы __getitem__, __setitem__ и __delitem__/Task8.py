@@ -12,7 +12,11 @@ class TicTacToe(object):
         self.pole = tuple([tuple([Cell() for _ in range(3)]) for _ in range(3)])
 
     def check_index(self, indx):
-        if (isinstance(indx, tuple) and isinstance(indx[0], int) and isinstance(indx[1], int)):
+        if (
+            isinstance(indx, tuple)
+            and isinstance(indx[0], int)
+            and isinstance(indx[1], int)
+        ):
             r, c = indx[0], indx[1]
             if r < 0 or r > 2 or c < 0 or c > 2:
                 raise IndexError('неверный индекс клетки')
@@ -27,14 +31,14 @@ class TicTacToe(object):
             return True
 
     def get_coords(self, coords):
-        coords = []
+        out_coords = []
         for coord in coords:
             if isinstance(coord, int):
-                coords.append(coord)
+                out_coords.append(coord)
             if isinstance(coord, slice):
                 ind = coord.indices(3)
-                coords.append(ind)
-        return tuple(coords)
+                out_coords.append(ind)
+        return tuple(out_coords)
 
     def __getitem__(self, key):
         if self.check_index(key):
@@ -44,16 +48,16 @@ class TicTacToe(object):
             if isinstance(r, int) and isinstance(c, int):
                 return self.pole[r][c].value
             else:
-                res = []
+                out_res = []
                 if isinstance(r, tuple):
                     for row in range(r[0], r[1], r[2]):
-                        res.append(self.pole[row][c].value)
+                        out_res.append(self.pole[row][c].value)
 
                 if isinstance(c, tuple):
                     for col in range(c[0], c[1], c[2]):
-                        res.append(self.pole[r][col].value)
+                        out_res.append(self.pole[r][col].value)
 
-            return tuple(res)
+            return tuple(out_res)
 
     def __setitem__(self, key, value):
         if self.check_index(key):
@@ -65,4 +69,3 @@ class TicTacToe(object):
             for cell in row:
                 cell.value = 0
                 cell.is_free = True
-
