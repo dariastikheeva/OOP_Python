@@ -2,7 +2,6 @@ class Person:
     __slots__ = ('_fio', '_old','_job')
 
     def __init__(self, fio, old, job):
-        super().__init__()
         self._fio = fio
         self._old = old
         self._job = job
